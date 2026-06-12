@@ -1,0 +1,9 @@
+{
+  "organizerEmail": "ranaatif1299@gmail.com",
+  "calendarId": "primary",
+  "timezone": "Asia/Karachi",
+  "utcOffset": "+05:00",
+  "calendlyUrl": "https://calendly.com/m_atif/",
+  "minBookingYear": 2026,
+  "scriptsDir": "SYNC_PATCHES_THIS_PATH"
+}

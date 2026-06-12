@@ -1,0 +1,107 @@
+{
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "openai/gpt-5.5",
+        "fallbacks": []
+      },
+      "heartbeat": {
+        "every": "0m"
+      }
+    },
+    "list": [
+      {
+        "id": "visa",
+        "default": true,
+        "name": "Visa",
+        "workspace": "C:\\Users\\YOUR_USER\\.openclaw\\workspace",
+        "heartbeat": {
+          "every": "0m"
+        }
+      },
+      {
+        "id": "ops",
+        "name": "Ops",
+        "workspace": "C:\\Users\\YOUR_USER\\.openclaw\\workspace-ops",
+        "heartbeat": {
+          "every": "30m"
+        }
+      }
+    ]
+  },
+  "bindings": [
+    {
+      "agentId": "ops",
+      "match": {
+        "channel": "whatsapp",
+        "peer": {
+          "kind": "direct",
+          "id": "+923234065995"
+        }
+      }
+    },
+    {
+      "agentId": "ops",
+      "match": {
+        "channel": "whatsapp",
+        "peer": {
+          "kind": "direct",
+          "id": "+923121365995"
+        }
+      }
+    }
+  ],
+  "tools": {
+    "exec": {
+      "host": "gateway",
+      "security": "full",
+      "ask": "off",
+      "pathPrepend": [
+        "C:\\Users\\YOUR_USER\\.openclaw\\bin"
+      ],
+      "timeoutSec": 120
+    },
+    "web": {
+      "search": {
+        "enabled": true,
+        "provider": "parallel-free",
+        "maxResults": 5
+      }
+    }
+  },
+  "session": {
+    "scope": "per-sender",
+    "dmScope": "per-channel-peer"
+  },
+  "channels": {
+    "whatsapp": {
+      "dmPolicy": "open",
+      "allowFrom": [
+        "+923234065995",
+        "+923121365995",
+        "*"
+      ],
+      "groupPolicy": "allowlist"
+    }
+  },
+  "gateway": {
+    "port": 18789,
+    "mode": "local",
+    "bind": "loopback",
+    "auth": {
+      "mode": "token"
+    }
+  },
+  "plugins": {
+    "allow": [
+      "whatsapp",
+      "parallel",
+      "openai"
+    ],
+    "entries": {
+      "whatsapp": {
+        "enabled": true
+      }
+    }
+  }
+}

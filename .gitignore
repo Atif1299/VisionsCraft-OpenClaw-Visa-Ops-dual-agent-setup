@@ -1,0 +1,24 @@
+# Secrets and runtime state
+.env
+*.env
+.env.*
+!.env.example
+
+# OpenClaw credentials (never commit)
+credentials/
+**/creds.json
+**/creds.json.bak
+
+# Lead data (contains PII)
+leads/
+**/leads.jsonl
+**/bookings.jsonl
+**/prospects.jsonl
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.log
+
+# Node (if added later)
+node_modules/
